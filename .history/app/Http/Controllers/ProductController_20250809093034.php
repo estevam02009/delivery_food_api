@@ -46,11 +46,15 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        // Encontra o produto pelo ID
-        $product = Product::with('restaurant')->findOrFail($id);
+        //
+    }
 
-        // Retorna o produto como uma resposta JSON
-        return response()->json($product);
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
     }
 
     /**
@@ -58,23 +62,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // 1. Encontra o produto pelo ID
-        $product = Product::findOrFail($id);
-
-        // 2. Valida os dados de entrada
-        $validatedData = $request->validate([
-            'name'              => 'required|string|max:255',
-            'description'       => 'required|string|max:255',
-            'price'             => 'required|numeric',
-            'image_url'         =>  'nullable|url',
-            'is_available'      =>  'boolean',
-        ]);
-
-        // 3. Atualiza o produto
-        $product->update($validatedData);
-
-        // 4. Retorna o produto atualizado
-        return response()->json($product);
+        //
     }
 
     /**
@@ -82,15 +70,6 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        // Encontra o produto pelo ID
-        $product = Product::findOrFail($id);
-
-        // 5. Remove o produto
-        $product->delete();
-
-        // 6. Retorna uma mensagem de sucesso
-        return response()->json([
-            'message' => 'Produto removido com sucesso'
-        ]);
+        //
     }
 }
