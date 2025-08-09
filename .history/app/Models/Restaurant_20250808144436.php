@@ -16,19 +16,4 @@ class Restaurant extends Model
         'description',
         'logo_url',
     ];
-
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
-
-    // public function addresses()
-    // {
-    //     return $this->hasMany(Address::class);
-    // }
-
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
 }

@@ -17,9 +17,4 @@ class Address extends Model
         'zip_code',
         'is_primary',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

@@ -17,14 +17,4 @@ class Product extends Model
         'image_url',
         'is_available',
     ];
-
-    public function restaurant()
-    {
-        return $this->belongsTo(Restaurant::class);
-    }
-
-    public function ordersItems()
-    {
-        return $this->hasMany(OrderItem::class);
-    }
 }
