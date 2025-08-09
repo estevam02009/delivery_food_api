@@ -17,7 +17,7 @@ class AddressController extends Controller
         $user = Auth::user();
 
         // Retorna todos os endereços do usuário
-        $addresses = $user->addresses;
+        $address = $user->addresses;
 
         // Retorna os endereços do usuário em formato JSON
         return response()->json($addresses);

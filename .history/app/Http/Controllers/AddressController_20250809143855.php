@@ -17,7 +17,7 @@ class AddressController extends Controller
         $user = Auth::user();
 
         // Retorna todos os endereços do usuário
-        $addresses = $user->addresses;
+        $address = $user->addresses;
 
         // Retorna os endereços do usuário em formato JSON
         return response()->json($addresses);
@@ -36,14 +36,6 @@ class AddressController extends Controller
             'zip_code'      => 'required|string|max:10',
             'is_primary'    =>  'boolean'
         ]);
-
-        $user = Auth::user();
-
-        // Cria um novo endereço associado ao usuário
-        $address = $user->addresses()->create($validatedData);
-
-        // Retorna o endereço criado em formato JSON
-        return response()->json($address, 201);
     }
 
     /**
@@ -51,12 +43,15 @@ class AddressController extends Controller
      */
     public function show(string $id)
     {
-        $user = Auth::user();
+        //
+    }
 
-        // Busca o endereço pelo ID e verifica se pertence ao usuário
-        $address = $user->addresses()->findOrFail($id);
-
-        return response()->json($address);
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
     }
 
     /**
