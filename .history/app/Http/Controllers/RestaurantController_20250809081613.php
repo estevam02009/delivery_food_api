@@ -57,22 +57,22 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // 1. Valida os dados de entrada
+        // Valida os dados do usuário
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'phone' => 'nullable|string|max:20',
-            'description' => 'nullable|string',
-            'logo_url' => 'nullable|url',
+            'name'          =>  'required|string|max:255',
+            'address'       =>  'required|string|max:255',
+            'phone'         =>  'nullable|string|max:20',
+            'description'   =>  'nullable|string',
+            'logo_url'      =>  'nullable|url',
         ]);
 
-        // 2. Encontra o restaurante pelo ID
+        // 1. Busca o restaurante pelo ID
         $restaurant = Restaurant::findOrFail($id);
 
-        // 3. Atualiza o restaurante com os novos dados
+        // 2. Atualiza os dados do restaurante
         $restaurant->update($validatedData);
 
-        // 4. Retorna o restaurante atualizado
+        // 3. Retorna o restaurante atualizado como uma resposta JSON
         return response()->json($restaurant);
     }
 
@@ -81,13 +81,6 @@ class RestaurantController extends Controller
      */
     public function destroy(string $id)
     {
-        // 1. Busca o restaurante pelo ID
-        $restaurant = Restaurant::findOrFail($id);
-
-        // 2. Remove o restaurante
-        $restaurant->delete();
-
-        // 3. Retorna uma resposta JSON vazia com o status 204 (No Content)
-        return response()->json(null, 204);
+        //
     }
 }
